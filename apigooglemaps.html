@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAppciAwWqtr0SmEtMBMrV1zIx0wpH28PU&libraries=places"></script>
+    <script>
+      /**
+      * link da documentação - https://developers.google.com/maps/documentation?hl=pt-br
+      * De acordo com a documentação para assinar o serviço usado API do Google Maps tem um plano de preços que começa com uma cota gratuita de uso mensal e, em seguida, oferece várias opções de pagamento dependendo da quantidade de uso. A cota gratuita permite um uso limitado da API, mas é suficiente para muitas aplicações web. Se você precisar de recursos adicionais, como direções e rotas, é necessário atualizar para um plano pago.
+      * link dos planos - https://mapsplatform.google.com/pricing/
+      * codigo ja montado porem fazer uma conta no https://console.cloud.google.com/ gerar a chave Key e alterar no script da linha 6
+      *
+      */
+      function initAutocomplete() {
+        var input = document.getElementById('endereco');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          var enderecoInfo = document.getElementById('endereco-info');
+          enderecoInfo.innerHTML = '<b>Endereço:</b> ' + place.formatted_address;
+        });
+      }
+    </script>
+  </head>
+  <body onload="initAutocomplete()">
+    <h1>Teste pro miguel ficar feliz</h1>
+    <form>
+      <label for="endereco">Endereço:</label>
+      <input id="endereco" type="text" placeholder="Digite o endereço">
+      <div id="endereco-info"></div>
+    </form>
+  </body>
+</html>
