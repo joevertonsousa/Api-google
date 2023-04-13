@@ -1,2 +1,2 @@
 # Api-google
-Colocando api do google em um código
+Esse repositorio contem algumas tecnicas usadas para adicionar uma api do google ao seu codigo.
